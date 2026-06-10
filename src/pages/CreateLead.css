@@ -173,3 +173,37 @@
 @media (max-width: 600px) {
   .cl-row { grid-template-columns: 1fr; }
 }
+
+.cl-success-screen {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  animation: fadeUp 0.35s ease both;
+}
+
+.cl-success-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.cl-success-screen h2 {
+  font-size: 1.4rem !important;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.5rem !important;
+}
+
+.cl-success-screen p {
+  color: #6b7280;
+  font-size: 0.92rem;
+  margin-bottom: 2rem !important;
+}
+
+.cl-success-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}

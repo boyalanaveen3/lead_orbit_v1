@@ -47,6 +47,8 @@
   width: 100%;
   border-inline: 0;
   margin: 0;
+  display: block;
+  flex-direction: unset;
 }
 
 body {

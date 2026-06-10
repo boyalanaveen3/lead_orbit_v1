@@ -22,7 +22,7 @@ export default function Leads() {
   const [error, setError] = useState("");
  const [page,setPage]=useState(1)
  const [totalPages,setTotalPages]=useState(1)
- const limit=2;
+ const limit=5;
  useEffect(()=>{
 leadsdata()
  },[page])
@@ -30,15 +30,15 @@ leadsdata()
   try{
    setLoading(true)
    const resposne=await leadslist({page,limit})
-
-   setLeads(resposne?.data?.data || [])
-   setTotalPages(Math.ceil((resposne?.data?.total ?? 0) / limit));
+   const paginationData = resposne?.data;
+   const list = paginationData?.data ?? [];
+   const total = paginationData?.total ?? 0;
+   setLeads(list);
+   setTotalPages(Math.floor(total / limit) + (total % limit > 0 ? 1 : 0));
   }catch(error:any){
- setError("faild to  fetch data ")
- console.log(error);
- 
-  }
-  finally{
+   setError("Failed to fetch data")
+   console.log(error);
+  }finally{
     setLoading(false)
   }
  }
@@ -93,11 +93,11 @@ leadsdata()
             </table>
           </div>
         )}
-        {!loading && !error && totalPages > 1 && (
+        {!loading && !error && leads.length > 0 && (
           <div className="pagination">
             <button disabled={page === 1} onClick={() => setPage(page - 1)}>Previous</button>
-            <span>{page} of {totalPages}</span>
-            <button disabled={page >= totalPages} onClick={() => setPage(page + 1)}>Next</button>
+            <span>Page {page}</span>
+            <button disabled={leads.length < limit} onClick={() => setPage(page + 1)}>Next</button>
           </div>
         )}
       </section>

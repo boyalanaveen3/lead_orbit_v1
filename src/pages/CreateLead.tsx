@@ -60,12 +60,31 @@ export default function CreateLead() {
       setSuccess(true);
       setForm(INITIAL);
       setErrors({});
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } catch {
       setApiError("Failed to create lead. Please try again.");
     } finally {
       setLoading(false);
     }
   };
+
+  if (success) {
+    return (
+      <AppLayout>
+        <section className="cl-page">
+          <div className="cl-success-screen">
+            <div className="cl-success-icon">✅</div>
+            <h2>Lead Created Successfully!</h2>
+            <p>The lead has been added to your pipeline.</p>
+            <div className="cl-success-actions">
+              <button className="cl-submit" onClick={() => setSuccess(false)}>+ Create Another</button>
+              <button className="cl-cancel" onClick={() => navigate("/leads")}>View All Leads</button>
+            </div>
+          </div>
+        </section>
+      </AppLayout>
+    );
+  }
 
   return (
     <AppLayout>
@@ -74,13 +93,6 @@ export default function CreateLead() {
           <h1 className="cl-title">Create Lead</h1>
           <p className="cl-subtitle">Fill in the details to add a new lead.</p>
         </div>
-
-        {success && (
-          <div className="cl-success">
-            ✅ Lead created successfully!
-            <button onClick={() => navigate("/leads")}>View All Leads →</button>
-          </div>
-        )}
 
         <form className="cl-form" onSubmit={handleSubmit} noValidate>
           <div className="cl-row">

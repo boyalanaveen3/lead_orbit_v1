@@ -1,14 +1,19 @@
 .app-layout {
   min-height: 100vh;
+  height: 100vh;
   display: flex;
+  flex-direction: row;
   background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+  overflow: hidden;
 }
 
 .app-content {
   flex: 1;
-  padding: 3rem;
+  padding: 2rem;
   box-sizing: border-box;
   text-align: left;
+  overflow-y: auto;
+  height: 100vh;
 }
 
 @media (max-width: 1000px) {
