@@ -1,0 +1,22 @@
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+}
+
+.app-content {
+  flex: 1;
+  padding: 3rem;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+@media (max-width: 1000px) {
+  .app-layout {
+    flex-direction: column;
+  }
+
+  .app-content {
+    padding: 1.25rem;
+  }
+}

@@ -3,7 +3,8 @@ import { Link, Navigate } from "react-router-dom";
 import AuthLayout from "../layouts/AuthLayout";
 import Input from "../components/Input";
 import Button from "../components/Button";
-import { loginuser } from "../services/auth.service";
+import { loginuser } from "../services/Auth.service";
+import "./login.css"
 
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -27,17 +28,19 @@ export default function Login() {
 
   return (
     <AuthLayout>
-      <h1 style={{ marginBottom: 8 }}>Login</h1>
-      <p style={{ marginBottom: 20 }}>Welcome to Lead Orbit.</p>
-      <form onSubmit={handleSubmit}>
-        <Input label="Email" type="email" placeholder="you@example.com" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required />
-        <Input label="Password" type="password" placeholder="••••••••" value={form.password} onChange={e => setForm({ ...form, password: e.target.value })} required />
-        {error && <p style={{ color: "red", fontSize: 13, marginBottom: 8 }}>{error}</p>}
-        <Button type="submit">Login</Button>
-      </form>
-      <p style={{ marginTop: 16, fontSize: 14 }}>
-        Don't have an account? <Link to="/register">Create one</Link>
-      </p>
+      <div className="login-card">
+        <h1 className="login-title">Welcome back</h1>
+        <p className="login-subtitle">Sign in to your Lead Orbit account</p>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <Input label="Email" type="email" placeholder="you@example.com" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required />
+          <Input label="Password" type="password" placeholder="••••••••" value={form.password} onChange={e => setForm({ ...form, password: e.target.value })} required />
+          {error && <p className="login-error">{error}</p>}
+          <Button type="submit">Sign in</Button>
+        </form>
+        <p className="login-footer">
+          Don't have an account? <Link to="/register">Create one</Link>
+        </p>
+      </div>
     </AuthLayout>
   );
 }

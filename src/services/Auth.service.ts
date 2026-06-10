@@ -1,16 +1,17 @@
 import { api } from "../utils/api"
 
 type RegisterPayload = {
-  name: string;
+  organization_name:string
+  firstname: string;
+  lastname: string;
   email: string;
   password: string;
+  phone_no:string
 };
 
 export const register = async (data: RegisterPayload) => {
-  // Some backends expect `username` instead of `name`; sending both keeps this client compatible.
   const payload = {
     ...data,
-    username: data.name,
   };
   const response = await api.post("/auth/register", payload);
   return response.data;
@@ -18,5 +19,7 @@ export const register = async (data: RegisterPayload) => {
 
 export const loginuser = async (data: { email: string; password: string }) => {
   const response = await api.post("/auth/login", data);
+  const token = response.data?.token ?? response.data?.access_token;
+  if (token) localStorage.setItem("token", token);
   return response.data;
 };

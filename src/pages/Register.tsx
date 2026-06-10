@@ -4,10 +4,11 @@ import { Link, Navigate } from "react-router-dom";
 import AuthLayout from "../layouts/AuthLayout";
 import Input from "../components/Input";
 import Button from "../components/Button";
-import { register } from "../services/auth.service";
+import { register } from "../services/Auth.service";
+import "./Register.css";
 
 export default function Register() {
-  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [form, setForm] = useState({ organization_name:"",firstname: "", lastname:"",email: "", password: "", phone_no:""});
   const [error, setError] = useState("");
   const [isRegistered, setIsRegistered] = useState(false);
 
@@ -36,18 +37,23 @@ export default function Register() {
 
   return (
     <AuthLayout>
-      <h1 style={{ marginBottom: 8 }}>Create Account</h1>
-      <p style={{ marginBottom: 20 }}>Join Lead Orbit today.</p>
-      <form onSubmit={handleSubmit}>
-        <Input label="Name" type="text" placeholder="Your name" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
-        <Input label="Email" type="email" placeholder="you@example.com" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required />
-        <Input label="Password" type="password" placeholder="••••••••" value={form.password} onChange={e => setForm({ ...form, password: e.target.value })} required />
-        {error && <p style={{ color: "red", fontSize: 13, marginBottom: 8 }}>{error}</p>}
-        <Button type="submit">Register</Button>
-      </form>
-      <p style={{ marginTop: 16, fontSize: 14 }}>
-        Already have an account? <Link to="/login">Login</Link>
-      </p>
+      <div className="register-page">
+        <h1 className="register-title">Create Account</h1><br></br>
+        <p className="register-subtitle">Join Lead Orbit today.</p><br></br>
+        <form className="register-form" onSubmit={handleSubmit}>
+          <Input label="organization_name" type="text" placeholder="companey name" value={form.organization_name} onChange={e => setForm({ ...form, organization_name: e.target.value })} required />
+          <Input label="firstname" type="text" placeholder="first name" value={form.firstname} onChange={e => setForm({ ...form, firstname: e.target.value })} required />
+          <Input label="lastname" type="text" placeholder="last name" value={form.lastname} onChange={e => setForm({ ...form, lastname: e.target.value })} required />
+          <Input label="Email" type="email" placeholder="you@example.com" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required />
+          <Input label="Password" type="password" placeholder="••••••••" value={form.password} onChange={e => setForm({ ...form, password: e.target.value })} required />
+          <Input label="Phone No" type="text" placeholder="Your phone number" value={form.phone_no} onChange={e => setForm({ ...form, phone_no: e.target.value })} required />
+          {error && <p className="register-error">{error}</p>}
+          <Button type="submit">Register</Button>
+        </form>
+        <p className="register-footer">
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
+      </div>
     </AuthLayout>
   );
 }

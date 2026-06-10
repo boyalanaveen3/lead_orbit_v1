@@ -42,6 +42,13 @@
   box-sizing: border-box;
 }
 
+#root.auth-shell,
+#root.app-shell {
+  width: 100%;
+  border-inline: 0;
+  margin: 0;
+}
+
 body {
   margin: 0;
 }
