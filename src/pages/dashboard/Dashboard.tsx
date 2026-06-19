@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import AppLayout from "../layouts/AppLayout";
-import { Dashboard as fetchDashboard } from "../services/Dashboard.service";
+import AppLayout from "../../layouts/AppLayout";
+import { Dashboard as fetchDashboard } from "../../services/Dashboard.service";
 import "./Dashboard.css";
 
 type Stats = {
@@ -8,6 +8,9 @@ type Stats = {
   newLeads: number;
   pendingTasks: number;
   totalUsers: number;
+  interested: number;
+  converted: number;
+  lost: number;
 };
 
 const CARDS = [
@@ -15,6 +18,9 @@ const CARDS = [
   { key: "newLeads",      label: "New Leads",      icon: "🆕" },
   { key: "pendingTasks",  label: "Pending Tasks",  icon: "⏳" },
   { key: "totalUsers",    label: "Total Users",    icon: "👥" },
+  { key: "interested",    label: "interested",    icon: "👥" },
+  { key: "converted",    label: "converted",    icon: "👥" },
+  { key: "lost",    label: "lost",    icon: "👥" },
 ] as const;
 
 export default function Dashboard() {

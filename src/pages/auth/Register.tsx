@@ -1,10 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, Navigate } from "react-router-dom";
-import AuthLayout from "../layouts/AuthLayout";
-import Input from "../components/Input";
-import Button from "../components/Button";
-import { register } from "../services/Auth.service";
+import AuthLayout from "../../layouts/AuthLayout";
+import Input from "../../components/Input";
+import Button from "../../components/Button";
+import { register } from "../../services/Auth.service";
 import "./Register.css";
 
 export default function Register() {

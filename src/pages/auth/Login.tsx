@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-import AuthLayout from "../layouts/AuthLayout";
-import Input from "../components/Input";
-import Button from "../components/Button";
-import { loginuser } from "../services/Auth.service";
+import AuthLayout from "../../layouts/AuthLayout";
+import Input from "../../components/Input";
+import Button from "../../components/Button";
+import { loginuser } from "../../services/Auth.service";
 import "./login.css"
 
 export default function Login() {

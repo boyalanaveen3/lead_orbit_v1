@@ -1,61 +1,23 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
 
-import Login from "../pages/Login";
-import Register from "../pages/Register";
-import Dashboard from "../pages/Dashboard";
-import Leads from "../pages/Leads";
-import CreateLead from "../pages/CreateLead";
-import PlaceholderPage from "../pages/PlaceholderPage";
+import Login from "../pages/auth/Login";
+import Register from "../pages/auth/Register";
+import Dashboard from "../pages/dashboard/Dashboard";
+import Leads from "../pages/leads/Leads";
+import CreateLead from "../pages/leads/CreateLead";
+import Tasks from "../pages/tasks/Tasks";
+import CreateTask from "../pages/tasks/CreateTask";
+import Settings from "../pages/settings/Settings";
 
 export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Navigate to="/login" replace />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/register",
-    element: <Register />,
-  },
-  {
-    path: "/dashboard",
-    element: <Dashboard />,
-  },
-  {
-    path: "/leads",
-    element: <Leads />,
-  },
-  {
-    path: "/leads/getleads",
-    element: <Leads />,
-  },
-  {
-    path: "/leads/create",
-    element: <CreateLead />,
-  },
-  {
-    path: "/tasks",
-    element: (
-      <PlaceholderPage
-        title="Tasks"
-        description="Task management screen can be added here."
-      />
-    ),
-  },
-  {
-    path: "/settings",
-    element: (
-      <PlaceholderPage
-        title="Settings"
-        description="Settings screen can be added here."
-      />
-    ),
-  },
-  {
-    path: "*",
-    element: <Navigate to="/login" replace />,
-  },
+  { path: "/", element: <Navigate to="/login" replace /> },
+  { path: "/login", element: <Login /> },
+  { path: "/register", element: <Register /> },
+  { path: "/dashboard", element: <Dashboard /> },
+  { path: "/leads", element: <Leads /> },
+  { path: "/leads/create", element: <CreateLead /> },
+  { path: "/tasks", element: <Tasks /> },
+  { path: "/tasks/create", element: <CreateTask /> },
+  { path: "/settings", element: <Settings /> },
+  { path: "*", element: <Navigate to="/login" replace /> },
 ]);

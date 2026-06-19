@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import AppLayout from "../layouts/AppLayout";
-import { leadslist } from "../services/LeadsList";
+import AppLayout from "../../layouts/AppLayout";
+import { leadslist } from "../../services/LeadsList";
 import "./Leads.css";
 
 type Lead = {

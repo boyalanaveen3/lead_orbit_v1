@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AppLayout from "../layouts/AppLayout";
-import { createLead, type CreateLeadPayload } from "../services/LeadsList";
+import AppLayout from "../../layouts/AppLayout";
+import { createLead, type CreateLeadPayload } from "../../services/LeadsList";
 import "./CreateLead.css";
 
 const INITIAL: CreateLeadPayload = {
